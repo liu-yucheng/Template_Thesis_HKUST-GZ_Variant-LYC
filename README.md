@@ -26,8 +26,8 @@ AGPL 3.0 License: https://www.gnu.org/licenses/agpl-3.0.txt .
 ## Non-textual or Non-code Contents
 
 ```
-Copyright (C) 2024 Yucheng Liu. Under the CC 4.0 BY-SA License.
-CC 4.0 BY-SA License: https://creativecommons.org/licenses/by-sa/4.0/legalcode.txt .
+Copyright (C) 2024 Yucheng Liu. Under the CC-BY-SA 4.0 License.
+CC-BY-SA 4.0 License: https://creativecommons.org/licenses/by-sa/4.0/legalcode.txt .
 ```
 
-- [The CC 4.0 BY-SA License.](./license-2)
+- [The CC-BY-SA 4.0 License.](./license-2)
