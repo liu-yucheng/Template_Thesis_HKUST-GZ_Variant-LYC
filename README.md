@@ -1,27 +1,33 @@
-# Template of HKUST(GZ) Thesis
+# Template_HKUST-GZ_Thesis_Variant-LYC
 
+HKUST (GZ) thesis template, LYC's variant.
 
+# Compilation
 
-> Version 1.0
+- Go to the [thesis](./thesis/) folder.
+- Use the `XeLaTeX -> BibTeX -> XeLaTeX * 2` compilation recipe.
+- Compile [0_0_thesis.tex](./thesis/0_0_thesis.tex).
 
-=======
+# References - TeX Template
 
+- [@luckyfan-cs, Template-of-HKUST-GZ-Thesis](https://github.com/luckyfan-cs/Template-of-HKUST-GZ-Thesis)
+  - Permitted to use under the [MIT License](https://www.mit.edu/~amini/LICENSE.md).
 
-## Usage
+# Copyright
+## Textual and Code Contents
 
-latex:
 ```
-000_thesis.tex
-
+Copyright (C) 2024 Yucheng Liu. Under the AGPL 3.0 License.
+AGPL 3.0 License: https://www.gnu.org/licenses/agpl-3.0.txt .
 ```
 
+- [The AGPL 3.0 License.](./license)
 
+## Non-textual or Non-code Contents
 
-## Requirement
-Please adhere to the template regulations of the HKUST(GZ) and ensure that you comply with the requirements in a thorough and diligent manner. 
+```
+Copyright (C) 2024 Yucheng Liu. Under the CC 4.0 BY-SA License.
+CC 4.0 BY-SA License: https://creativecommons.org/licenses/by-sa/4.0/legalcode.txt .
+```
 
-
-
-
-## Contact
-Please contact [@fan](https://github.com/luckyfan-cs) for questions, comments and reporting bugs.
+- [The CC 4.0 BY-SA License.](./license-2)

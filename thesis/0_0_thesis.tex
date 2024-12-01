@@ -1,0 +1,349 @@
+% Copyright (C) 2024 Yucheng Liu. Under the AGPL 3.0 License.
+% AGPL 3.0 License: https://www.gnu.org/licenses/agpl-3.0.txt .
+
+% HKUST-GZ thesis template. Using ustthesis.cls.
+
+% Import package set 1.
+\documentclass[a4paper]{ustthesis}
+\usepackage[square,numbers]{natbib}
+\usepackage{xeCJK}
+% \usepackage[T1]{fontenc}
+% \usepackage{algorithm}
+% \usepackage{algorithmic}
+\usepackage{longtable}
+\usepackage{url}
+\usepackage{multirow}
+\usepackage{graphics}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{cases}
+\usepackage{colortbl}
+\usepackage{xcolor}
+\usepackage{times}
+\usepackage{array}
+\usepackage{hyperref}
+
+\hypersetup{
+    colorlinks = false,
+    pdfborderstyle = {/S/U/W 1}
+}
+
+\usepackage{pdflscape}
+\DeclareMathOperator*{\argmax}{argmax}
+\usepackage{fontspec}
+
+% Font settings preset 1.
+\iffalse
+
+\setmainfont{times} [
+    Path = ../fonts/Times-New-Roman/ ,
+    UprightFont = *.ttf ,
+    BoldFont = *bd.ttf ,
+    ItalicFont = *i.ttf ,
+    BoldItalicFont = *bi.ttf
+]
+
+\setsansfont{arial} [
+    Path = ../fonts/Arial/ ,
+    UprightFont = *.ttf ,
+    BoldFont = *bd.ttf ,
+    ItalicFont = *i.ttf ,
+    BoldItalicFont = *bi.ttf
+]
+
+\setmonofont{cour} [
+    Path = ../fonts/Courier-New/ ,
+    UprightFont = *.ttf ,
+    BoldFont = *bd.ttf ,
+    ItalicFont = *i.ttf ,
+    BoldItalicFont = *bi.ttf
+]
+
+% \setCJKmainfont{AR PL UMing HK}
+\setCJKmainfont{../fonts/GoNotoCurrentSerif/GoNotoCurrentSerif.ttf}
+
+\fi
+
+% Font settings preset 2.
+\iftrue
+
+\setmainfont{cambria} [
+    Path = ../fonts/Cambria/ ,
+    UprightFont = *.ttc ,
+    BoldFont = *b.ttf ,
+    ItalicFont = *i.ttf ,
+    BoldItalicFont = *z.ttf
+]
+
+\setsansfont{calibri} [
+    Path = ../fonts/Calibri/ ,
+    UprightFont = *.ttf ,
+    BoldFont = *b.ttf ,
+    ItalicFont = *i.ttf ,
+    BoldItalicFont = *z.ttf
+]
+
+\setmonofont{cour} [
+    Path = ../fonts/Courier-New/ ,
+    UprightFont = *.ttf ,
+    BoldFont = *bd.ttf ,
+    ItalicFont = *i.ttf ,
+    BoldItalicFont = *bi.ttf
+]
+
+\setCJKmainfont{../fonts/GoNotoCurrentSerif/GoNotoCurrentSerif.ttf}
+
+\fi
+
+% Font settings preset 3.
+\iffalse
+
+\setmainfont{GoNotoCurrentSerif} [
+    Path = ../fonts/GoNotoCurrentSerif/ ,
+    UprightFont = *.ttf
+]
+
+\setsansfont{GoNotoCurrent} [
+    Path = ../fonts/GoNotoCurrent/ ,
+    UprightFont = *-Regular.ttf ,
+    BoldFont = *-Bold.ttf
+]
+
+\setmonofont{CascadiaMono} [
+    Path = ../fonts/Cascadia/ ,
+    UprightFont = *.ttf
+]
+
+\setCJKmainfont{../fonts/GoNotoCurrentSerif/GoNotoCurrentSerif.ttf}
+
+\fi
+
+% Import package set 2.
+% \usepackage{setspace}
+% \usepackage{hyperref}
+\usepackage{diagbox}
+% \usepackage[T1]{fontenc}  % use 8-bit T1 fonts
+% \usepackage{hyperref}     % hyperlinks
+% \usepackage{url}          % simple URL typesetting
+\usepackage{booktabs}       % professional-quality tables
+\usepackage{amsfonts}       % blackboard math symbols
+\usepackage{nicefrac}       % compact symbols for 1/2, etc.
+\usepackage{microtype}      % microtypographyhttps://www.overleaf.com/project/62064cfa2a4921563b535a86
+\usepackage{xcolor}         % colors
+\usepackage{times}
+\usepackage{epsfig}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+% Import package set 3.
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{dsfont}
+\usepackage{multirow}
+\usepackage{adjustbox}
+\usepackage{wrapfig}
+\usepackage{threeparttable}     % Package importation needed.
+% \usepackage{appendix}
+\usepackage[utf8x]{inputenc}
+
+% Define commands set 1.
+% Import package set 4.
+\newcommand{\sign}{\text{sign}}
+\newtheorem{myDef}{Definition} 
+\newtheorem{myAss}{Assumption} 
+% Assumption
+\newtheorem{myTheo}{Theorem}
+\newtheorem{myexam}{Example}
+\newtheorem{proposition}{Proposition}
+\newtheorem{proof}{Proof}
+\usepackage[ruled,linesnumbered]{algorithm2e}
+\usepackage{subfigure}
+\makeatletter
+\newcommand{\rmnum}[1]{\romannumeral #1}
+\newcommand{\Rmnum}[1]{\expandafter\@slowromancap\romannumeral #1@}
+
+% Define commands set 2.
+\newcommand{\etal}{\emph{et~al.}\xspace}
+\newcommand{\eg}{\emph{e.g.},\xspace}
+\newcommand{\ie}{\emph{i.e.},\xspace}
+\newcommand{\wrt}{\emph{w.r.t.}\xspace}
+\newcommand{\aka}{\emph{a.k.a.}\xspace}
+\newcommand{\etc}{\emph{etc.}\xspace}
+\newcommand{\cf}{cf.\/~}
+\newcommand\figref[1]{Figure~\ref{#1}}
+\newcommand\algoref[1]{Algorithm~\ref{#1}}
+\newcommand\tabref[1]{Table~\ref{#1}}
+\newcommand\secref[1]{Section~\ref{#1}}
+\newcommand\equref[1]{Eq.~(\ref{#1})}
+\DeclareMathAlphabet\mathbfcal{OMS}{cmsy}{b}{n}
+
+% Define commands set 3.
+\newtheorem{pro}{Problem}
+\newcommand{\eat}[1]{}
+\ifodd 1
+\newcommand{\rev}[1]{{\color{purple}{#1}}}                      % Revision of the text.
+\newcommand{\response}[1]{{\color{black}{#1}}}
+\newcommand{\TODO}[1]{{\color{red}TODO:{#1}}}
+\newcommand\beftext[1]{{\color[rgb]{0.5,0.5,0.5}{BEFORE:#1}}}
+\else
+\newcommand{\rev}[1]{#1}
+\newcommand{\hao}[1]{#1}
+\newcommand{\TODO}[1]{}
+\newcommand{\beftext}[1]{#1}
+\fi
+
+% Import package set 5.
+% Use the "latexsym" package when encountering the following error:
+%   ! LaTeX Error: Command \??? not provided in base LaTeX2e.
+% \usepackage{latexsym}
+% Use the "epsf" package for including EPS files.
+% \usepackage{epsf}
+
+% Preambles. DO NOT ERASE THEM.
+\title{Title}                           % Title of the thesis.
+\author{Your Name}                      % Author of the thesis.
+\degree{\MPhil}                         % Degree for which the thesis is. Options: \AM \MSc \MPhil \PhD .
+\stage{\Thesis}                         % Stage of PhD document. Options: \PQE \Proposal \Thesis .
+\subject{Your Thrust}                   % Subject of the Degree.
+\department{Your Thrust}                % Department to which the thesis is submitted.
+\advisor{Prof. A}                       % Supervisor.
+% co-supervisor can be added using \member .
+\member{Prof. B}
+%\acting                                % Uncomment for Accting department head.
+\depthead{Prof. C}                       % Department head.
+\defencedate{2023}{12}{18}              % \defencedate{year}{month}{day}.
+
+% According to the sample shown in the guidelines, page number is placed below the bottom margin.
+% However, if the author prefers the page number to be printed above the bottom margin,
+%   please activate the following command.
+%\PNumberAboveBottomMargin
+
+\begin{document}
+%\begin{CJK}{UTF8}{song}    % Bitstream Cyber Bit song ti
+%\begin{CJK*}{UTF8}{gbsn}   % Arphic song ti
+
+% Thesis Content. The order of output MUST be followed.
+% 0.0. TITLEPAGE.
+% The \maketitle command generates the Title page as well as the Signature page.
+\maketitle
+
+% 0.1. DEDICATION (Optional).
+% The \dedication and \enddedication commands are optional.
+% If specified it generates a page for dedication.
+% \dedication
+% This is an optional section.
+% \input{0_1_dedication.tex}
+% \enddedication
+% \newpage
+
+% 0.2. ACKNOWLEDGMENTS.
+% \acknowledgments and \endacknowledgments defines the Acknowledgments of the author of the Thesis.
+\acknowledgments
+\input{0_2_acknowledgments.tex}
+\endacknowledgments
+\newpage
+
+% 0.3. TABLE OF CONTENTS.
+\tableofcontents
+
+% 0.4. LIST OF FIGURES (If Any).
+\listoffigures
+
+% 0.5. LIST OF TABLES (If Any).
+\listoftables
+
+% 0.6. ABSTRACT
+% \abstract and \endabstract are used to define a short Abstract for the Thesis.
+\abstract
+\input{0_6_abstract.tex}
+\endabstract
+
+% 1. The Actual Contents
+% The command \chapters MUST BE USED to ensure that the entire content of the Thesis is double-spaced
+%   (in version 1.0).
+% However, in version 2.0, \chapters will be automatically added in the beginning of the first chapter.
+% \chapters     % Not necessary with ustthesis.cls (v2.0).
+% Each chapter is defined via the \chapter command.
+% The usual sectional commands of LaTeX are also available.
+
+% 1.1. Introduction.
+\chapter{Introduction}
+\label{chapter_intro}
+\input{1_1_introduction.tex}
+\newpage
+
+% 1.2. Guidelines (DO NOT include).
+% \chapter{Guidelines}
+% \label{chapter_guidelines}
+% \input{1_2_guidelines.tex}
+% \newpage
+
+% 1.3. Literature Review.
+\chapter{Literature Review}
+\label{chapter_review}
+\input{1_3_review.tex}
+\newpage
+
+% 1.4. Methodologies.
+\chapter{Methodologies}
+\label{chapter_methodologies}
+\input{1_4_methodologies.tex}
+\newpage
+
+% 1.5. Experiments.
+\chapter{Experiments}
+\label{chapter_experiments}
+\input{1_5_experiments.tex}
+\newpage
+
+% 1.6. Discussions.
+\chapter{Discussions}
+\label{chapter_discussions}
+\input{1_6_discussions.tex}
+\newpage
+
+% 1.7. Limitations.
+\chapter{Limitations}
+\label{chapter_limitations}
+\input{1_7_limitations.tex}
+\newpage
+
+% 1.8. Conclusions.
+\chapter{Conclusions}
+\label{chapter_conclusions}
+\input{1_8_conclusions.tex}
+\newpage
+
+% 2.1. REFERENCES.
+%
+% This example uses bibtex to generate the required Bibliography.
+% Refer to the file ustthesis_test.bib for the entries of the Bibliography.
+% Note that only the cited entries are printed.
+%                                 %
+% If BibTeX is not used to typeset the bibliography,
+%   replace the following line with the \begin{thebibliography} and \end{bibliography}% commands
+%   (the "thebibliography" environment) to process the Bibliography.
+%
+% The recommended bibliography style is the IEEE bibliography style.
+% "ustbib" defines the IEEE bibliography standard with the added ability of sorting the items by name of author.
+%
+% If you are not using BibTeX to process your Bibliography, comment out the following line.
+\addcontentsline{toc}{chapter}{Bibliography}
+\bibliographystyle{IEEEtran}
+\bibliography{2_1_references.bib}
+\newpage
+
+% 2.2. APPENDICES (If Any)
+%
+% \appendix command marks the beginning of the APPENDIX part of the Thesis.
+% The usual \chapter command is used for the different chapters of the Appendix.
+\appendix
+\chapter{Appendices}
+\label{chapter_appendices}
+\input{2_2_appendices.tex}
+
+% 2.3. BIOGRAPHY (optional)
+% \biography and \endbiography are used to define the optional Biography of the author of the Thesis.
+
+\end{document}
