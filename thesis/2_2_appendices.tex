@@ -1,19 +1,29 @@
 % Copyright (C) 2024 Yucheng Liu. Under the AGPL 3.0 License.
 % AGPL 3.0 License: https://www.gnu.org/licenses/agpl-3.0.txt .
 
-\section{Sideway page}
-Here is an example to have a page turned side way in the PDF. It is useful for having wide figures and tables in the thesis. 
+\section{Sample Figure}
+
+\begin{figure}
+\includegraphics[width=\hsize]{./figures/figure_sample.png}
+\caption{Sample figure.}
+\label{fig:sample}
+\end{figure}
+
+\ref{fig:sample}
+
+\section{Sideway Page}
+
+Here is an example to have a page turned side way in the PDF. It is useful for having wide figures and tables in the thesis.
 
 \begin{landscape} 
 \begin{table}
-\caption{Pearson's
-        $\rho $        correlation of participated metrics with the WMT 2016 official average
-        direct assessment human judgments on newstest 10k hybrid super-sampled
-        systems at system level. Correlations of metrics not significantly
-        outperformed by any other for that language pair are highlighted in
-        bold.}
-\centering
 
+\caption{
+    Pearson's $\rho $ correlation of participated metrics with the WMT 2016 official average direct assessment human judgments on newstest 10k hybrid super-sampled systems at system level.
+    Correlations of metrics not significantly outperformed by any other for that language pair are highlighted in bold.
+}
+
+\centering
 \begin{tabular}{m{0.36\textwidth}cccccccc|cccccccc}
 \hline & \multicolumn{8}{c|}{\textbf{into-English}} & \multicolumn{8}{c}{\textbf{out-of-English}} \\\textbf{Metric} & \textbf{cs} & \textbf{de} & \textbf{fi} & \textbf{lv} & \textbf{ru} & \textbf{tr} & \textbf{zh} & \textbf{avg.} & \textbf{cs} & \textbf{de} & \textbf{fi} & \textbf{lv} & \textbf{ru} & \textbf{tr} & \textbf{zh} & \textbf{avg.} \\ \hline
 Blend  & .963 & \textbf{.969} & .956 & .976 & \textbf{.957} & .981 & .890 & .956 & -- & -- & -- & -- & .950 & -- & -- & -- \\ \hline
@@ -33,6 +43,6 @@ PER & .967  & .920  & .892  & .958  & .904  & .898  & .866  & .915  & .960  & .6
 MEANT-dvw.cos.wmax.n2.m.r8.$\alpha $1.0.$\beta $0.0 & .896  & .928  & .931  & .960  & .952  & .895  & .799  & .909  & .968  & .753  & .970  & \textbf{.947 } & \textbf{.955 } & .980  & .931  & .929  \\ \hline
 AutoDA & .440  & .951  & .922  & .970  & .902  & .914  & .734  & .833  & .967  & .602  & .879  & .731  & .850  & .586  & .968  & .797  \\ \hline
 \end{tabular}
-\label{tbl_wmt17-sys}
+\label{table_wmt17_sys}
 \end{table}
 \end{landscape} 
