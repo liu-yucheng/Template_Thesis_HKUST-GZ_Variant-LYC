@@ -2,10 +2,135 @@
 
 HKUST (GZ) thesis template, LYC's variant.
 
+# Preparation (With VSCode - LaTeX Workshop)
+
+- Integrate the following items into your VS Code `settings.json`.
+
+```json
+{
+    "latex-workshop.latex.tools": [
+        {
+            "name": "xelatex",
+            "command": "xelatex",
+            "args": [
+                "-synctex=1",
+                "-interaction=nonstopmode",
+                "-file-line-error",
+                "%DOCFILE%"
+            ]
+        },
+        {
+            "name": "pdflatex",
+            "command": "pdflatex",
+            "args": [
+                "-synctex=1",
+                "-interaction=nonstopmode",
+                "-file-line-error",
+                "%DOCFILE%"
+            ]
+        },
+        {
+            "name": "latexmk",
+            "command": "latexmk",
+            "args": [
+                "-synctex=1",
+                "-interaction=nonstopmode",
+                "-file-line-error",
+                "-pdf",
+                "-outdir=%OUTDIR%",
+                "%DOCFILE%"
+            ]
+        },
+        {
+            "name": "bibtex",
+            "command": "bibtex",
+            "args": [
+                "%DOCFILE%"
+            ]
+        },
+        {
+            "name": "makeglossaries",
+            "command": "makeglossaries",
+            "args": [
+              "%DOCFILE%"
+            ]
+        },
+    ],
+    "latex-workshop.latex.recipes": [
+        {
+            "name": "XeLaTeX",
+            "tools": [
+                "xelatex"
+            ]
+        },
+        {
+            "name": "PDFLaTeX",
+            "tools": [
+                "pdflatex"
+            ]
+        },
+        {
+            "name": "BibTeX",
+            "tools": [
+                "bibtex"
+            ]
+        },
+        {
+            "name": "LaTeXmk",
+            "tools": [
+                "latexmk"
+            ]
+        },
+        {
+            "name": "xelatex, biblatex, xelatex * 2",
+            "tools": [
+                "xelatex",
+                "bibtex",
+                "xelatex",
+                "xelatex"
+            ]
+        },
+        {
+            "name": "pdflatex, biblatex, pdflatex * 2",
+            "tools": [
+                "pdflatex",
+                "bibtex",
+                "pdflatex",
+                "pdflatex"
+            ]
+        },
+        {
+            "name": "xelatex, biblatex, xelatex, makeglossaries, xelatex * 2",
+            "tools": [
+                "xelatex",
+                "makeglossaries",
+                "xelatex",
+                "bibtex",
+                "xelatex",
+                "xelatex"
+            ]
+        },
+        {
+            "name": "pdflatex, biblatex, pdflatex, makeglossaries, pdflatex * 2",
+            "tools": [
+                "pdflatex",
+                "makeglossaries",
+                "pdflatex",
+                "bibtex",
+                "pdflatex",
+                "pdflatex"
+            ]
+        },
+    ]
+}
+```
+
+- You can use the Command Palette (Ctrl+Shift+P) to access your `settings.json`.
+
 # Compilation
 
 - Go to the [thesis](./thesis/) folder.
-- Use the `XeLaTeX -> BibTeX -> XeLaTeX * 2` compilation recipe.
+- Use the `xelatex, biblatex, xelatex, makeglossaries, xelatex * 2` compilation recipe.
 - Compile [0_0_thesis.tex](./thesis/0_0_thesis.tex).
 
 # References - TeX Template
