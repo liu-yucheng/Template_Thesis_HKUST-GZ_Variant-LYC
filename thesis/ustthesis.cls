@@ -108,7 +108,7 @@
 \def\ds@draft{
 	%%% -- DRAFT is double spaced -- \def\textspace{}  % Single spaced text
 	\overfullrule 5pt % Causes overfull hboxes to be marked.
-	\def\versiontag{{\normalsize\rm - DRAFT \number\month/\number\day{} -}}
+	\def\versiontag{{\normalsize\rm - DRAFT \number\DefenseMonth/\number\DefenseDay{} -}}
 }
 
 %
@@ -598,7 +598,10 @@
 \def\Copyright{
 \typeout{Copyright}
 \begin{center}
-{Copyright \copyright\ by \@author \year}
+
+% Edited by Yucheng Liu on Dec. 21, 2024.
+{Copyright\space\copyright\space by\space\@author\space\DefenseYear}
+
 \thepage{}
 \end{center}
 }
@@ -654,7 +657,7 @@ scholarly research.}
 	\par\vspace{4cm}
         \begin{center}
           \candidate{\@author}
-          \today
+          \DefenseDateName
         \end{center}
   	\textspaceundo
 	\newpage
@@ -1459,7 +1462,11 @@ scholarly research.}
 \def\ext@figure{lof}
 \def\fnum@figure{Figure \thefigure}
 \def\figure{\@float{figure}}
-\let\endfigure\end@float
+
+% Edited by Yucheng Liu on Dec. 21, 2024.
+% \let\endfigure\end@float
+\def\endfigure{\end@float}
+
 \@namedef{figure*}{\@dblfloat{figure}}
 %\@namedef{endfigure*}{\end@dblfloat}
 
@@ -1571,7 +1578,7 @@ scholarly research.}
 %\advisor{??ADVISOR??}
 %\subject{??SUBJECT??}
 %\degree{??DEGREE??}
-%\date{\number\year}
+%\date{\number\DefenseYear}
 
 % The macros and counters between here and the definition of \maketitle help 
 % \maketitle handle the signature lines.
@@ -1693,7 +1700,7 @@ scholarly research.}
     \typeout{}
     \typeout{%
       Warning: \noexpand\defencedate{year}{month}{day} not yet defined.
-      Use \noexpand\today instead.
+      Use \noexpand\DefenseDateName instead.
     }
     \addlinedefinedtrue
   \fi
@@ -1777,8 +1784,8 @@ scholarly research.}
      \vglue 6ex
 % Chan:
 %	Make changes according to the guidelines released on March 2001.
-%      {\normalsize Hong Kong, \space\mon\space\number\year\par}
-      {\normalsize \space\mon\space\number\year, Guangzhou\par}
+%     {\normalsize Hong Kong, \space\DefenseMonthName\space\number\DefenseYear\par}
+      {\normalsize \space\DefenseMonthName\space\number\DefenseYear, Guangzhou\par}
       \vglue 12ex plus 1fill
       {\normalsize \Copyright}
     \end{center}
@@ -1863,7 +1870,7 @@ scholarly research.}
     \par
     {\normalsize \@department\par}
 %    \vglue 3ex plus 1fill
-    {\normalsize \today\par}
+    {\normalsize\DefenseDateName\par}
 %   {\normalsize Date:\hfill\rule[-.4ex]{2.35in}{.5pt}}
 %    }\hfill\par
 %    \end{flushleft}
@@ -1911,7 +1918,7 @@ scholarly research.}
 %%      {\normalsize A Thesis Presented to \dotfill\par}
 %      {\normalsize A Thesis Submitted to \dorfill\par}
 %      \vglue 8ex
-%      {\normalsize Hong Kong \mon\space\number\year\par}
+%      {\normalsize Hong Kong \DefenseMonthName\space\number\DefenseYear\par}
 %      \vglue 10ex
  %     {\normalsize Department of \@department\par}
  %     {\normalsize The Hong Kong University of Science and Technology \par}
@@ -2024,18 +2031,73 @@ scholarly research.}
 %    ****************************************
 %
 % DATE
-%
-\def\today{%
-  \number\day\space
-  \ifcase\month\or
-  January\or February\or March\or April\or May\or June\or
-  July\or August\or September\or October\or November\or December\fi
-% \space\number\day, \number\year}
-  \space\number\year}
 
-\def\mon{\ifcase\month\or
-  January\or February\or March\or April\or May\or June\or
-  July\or August\or September\or October\or November\or December\fi
+% Commented out by Yucheng Liu on Dec. 21, 2024.
+% The reason for that is to make \usepackage{glossaries} work properly.
+% \def\DefenseDateName{%
+%   \number\DefenseDay\space
+%   \ifcase\DefenseMonth\or
+%   January\or February\or March\or April\or May\or June\or
+%   July\or August\or September\or October\or November\or December\fi
+%   \space\number\DefenseYear
+% }
+
+% Added by Yucheng Liu on Dec. 21, 2024.
+% The reason for that is to make \usepackage{glossaries} work properly.
+%
+% Symbols renamed by Yucheng Liu on Dec. 21, 2024.
+% \today renamed to \DefenseDateName .
+% The reason for that is to avoid name collision with LaTeX built-in commands.
+\def\DefenseDateName{%
+  \DefenseDay\space
+  \ifcase\DefenseMonth
+    <Unknown Month>\or
+    January\or
+    February\or
+    March\or
+    April\or
+    May\or
+    June\or
+    July\or
+    August\or
+    September\or
+    October\or
+    November\or
+    December
+  \fi
+  \space\DefenseYear
+}
+
+% Commented out by Yucheng Liu on Dec. 21, 2024.
+% The reason for that is to make \usepackage{glossaries} work properly.
+% \def\mon{%
+%   \ifcase\DefenseMonth\or
+%   January\or February\or March\or April\or May\or June\or
+%   July\or August\or September\or October\or November\or December\fi
+% }
+
+% Added by Yucheng Liu on Dec. 21, 2024.
+% The reason for that is to make \usepackage{glossaries} work properly.
+%
+% Symbols renamed by Yucheng Liu on Dec. 21, 2024.
+% \mon renamed to \DefenseMonthName .
+% The reason for that is to avoid name collision with LaTeX built-in commands.
+\def\DefenseMonthName{%
+  \ifcase\DefenseMonth
+    <Unknown Month>\or
+    January\or
+    February\or
+    March\or
+    April\or
+    May\or
+    June\or
+    July\or
+    August\or
+    September\or
+    October\or
+    November\or
+    December
+  \fi
 }
 
 % Chan:
@@ -2046,7 +2108,18 @@ scholarly research.}
 \newif\ifdatedefined 
 \datedefinedfalse
 \def\defencedate#1#2#3{%
-  \def\year{ #1 } \def\month{ #2 } \def\day{ #3 }
+  % Edited by Yucheng Liu on Dec. 21, 2024.
+  % The reason for that is to make \usepackage{glossaries} work properly.
+  % \def\DefenseYear{ #1 } \def\DefenseMonth{ #2 } \def\DefenseDay{ #3 }
+  %
+  % Symbols renamed by Yucheng Liu on Dec. 21, 2024.
+  % \year renamed to \DefenseYear .
+  % \month renamed to \DefenseMonth .
+  % \day renamed to \DefenseDay .
+  % The reason for that is to avoid name collision with LaTeX built-in commands.
+  \def\DefenseYear{#1}
+  \def\DefenseMonth{#2}
+  \def\DefenseDay{#3}
   \datedefinedtrue
 }
 
@@ -2097,7 +2170,11 @@ scholarly research.}
 
 \ps@plain                   % 'plain' page style
 \pagenumbering{roman}       % roman page numbers
-\renewcommand{\thepage}{\nbi\roman{page}}
+
+% Commented out by Yucheng Liu on Dec. 21, 2024.
+% The reason for that is to make \usepackage{glossaries} work properly.
+% \renewcommand{\thepage}{\nbi\roman{page}}
+
 \onecolumn                  % Single-column.
 \raggedbottom               % Ragged bottom
 

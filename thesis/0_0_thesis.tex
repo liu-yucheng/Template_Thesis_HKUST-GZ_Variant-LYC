@@ -200,6 +200,12 @@
 % Use the "epsf" package for including EPS files.
 % \usepackage{epsf}
 
+% Import package set 6.
+% Create glossaries.
+% \usepackage{glossaries}
+\usepackage[style=indexgroup]{glossaries-extra}
+\input{2_4_1_glossaries_definitions}
+
 % Preambles. DO NOT ERASE THEM.
 \title{Title}                           % Title of the thesis.
 \author{Your Name}                      % Author of the thesis.
@@ -211,7 +217,7 @@
 % co-supervisor can be added using \member .
 \member{Prof. B}
 %\acting                                % Uncomment for Accting department head.
-\depthead{Prof. C}                       % Department head.
+\depthead{Prof. C}                      % Department head.
 \defencedate{2023}{12}{18}              % \defencedate{year}{month}{day}.
 
 % According to the sample shown in the guidelines, page number is placed below the bottom margin.
@@ -231,11 +237,11 @@
 % 0.1. DEDICATION (Optional).
 % The \dedication and \enddedication commands are optional.
 % If specified it generates a page for dedication.
-% \dedication
+\dedication
 % This is an optional section.
-% \input{0_1_dedication.tex}
-% \enddedication
-% \newpage
+\input{0_1_dedication.tex}
+\enddedication
+\newpage
 
 % 0.2. ACKNOWLEDGMENTS.
 % \acknowledgments and \endacknowledgments defines the Acknowledgments of the author of the Thesis.
@@ -248,7 +254,7 @@
 \tableofcontents
 
 % 0.4. LIST OF FIGURES (If Any).
-\listoffigures*
+\listoffigures
 
 % 0.5. LIST OF TABLES (If Any).
 \listoftables
@@ -335,15 +341,25 @@
 \newpage
 
 % 2.2. APPENDICES (If Any)
-%
 % \appendix command marks the beginning of the APPENDIX part of the Thesis.
 % The usual \chapter command is used for the different chapters of the Appendix.
 \appendix
-\chapter{Appendices}
-\label{chapter_appendices}
-\input{2_2_appendices.tex}
+\chapter{Additional Materials}
+\label{chapter_additional_materials}
+\input{2_2_additional_materials.tex}
+\newpage
 
 % 2.3. BIOGRAPHY (optional)
 % \biography and \endbiography are used to define the optional Biography of the author of the Thesis.
+% \label{chapter_biography}
+% \biography
+% \endbiography
+% \newpage
+
+% 2.4. GLOSSARIES (optional)
+\chapter{Glossaries}
+\label{chapter_glossaries}
+\input{2_4_2_glossaries_texts.tex}
+% \newpage
 
 \end{document}
