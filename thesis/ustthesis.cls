@@ -1489,7 +1489,12 @@ scholarly research.}
 \def\ext@table{lot}
 \def\fnum@table{Table \thetable}
 \def\table{\@float{table}}
-\let\endtable\end@float
+
+% Edited by Yucheng Liu on Dec. 21, 2024.
+% This is based on a "bad definition" document class warning.
+% \let\endtable\end@float
+\def\endtable{\end@float}
+
 \@namedef{table*}{\@dblfloat{table}}
 %\@namedef{endtable*}{\end@dblfloat}
 
@@ -1586,12 +1591,18 @@ scholarly research.}
 % \@member{member name} -- internal macro to print a line to sign on, and the
 %	name of a committee member (sole argument) below the line.
 \newcommand{\@member}[1]{
+  % Edited by Yucheng Liu on Dec. 21, 2024.
+  % The reason for that is to keep member's signature line and name on the
+  %   same page.
+  \filbreak
   \textspace
+  % \raisebox{-8pt}[0pt][17pt]{\rule{\maxmem}{.5pt}}\par	% Print line.
+  % \raisebox{-8pt}[0pt][17pt]{\rule{5in}{.5pt}}\par	% Print line.
   \raisebox{-8pt}[0pt][17pt]{\rule{5in}{.5pt}}\par	% Print line.
-%  \raisebox{-8pt}[0pt][17pt]{\rule{\maxmem}{.5pt}}\par	% Print line.
   \raisebox{0pt}[0pt][0pt]{\expandafter{#1}}\par	% Print member name below.
   \textspaceundo
   \vglue 6ex
+  \filbreak
 }
 
 \newlength{\maxmem}	       	% Max length of member text
