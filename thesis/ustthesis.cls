@@ -1,4 +1,4 @@
-% Copyright (C) 2024 Yucheng Liu. Under the AGPL 3.0 License.
+% Copyright (C) 2024-2025 Yucheng Liu. Under the AGPL 3.0 License.
 % AGPL 3.0 License: https://www.gnu.org/licenses/agpl-3.0.txt .
 
 % UST THESIS DOCUMENT CLASS -- version 2023.0 
@@ -1464,6 +1464,7 @@ scholarly research.}
 \def\figure{\@float{figure}}
 
 % Edited by Yucheng Liu on Dec. 21, 2024.
+% The reason for that is to remove a "bad definition" document class warning.
 % \let\endfigure\end@float
 \def\endfigure{\end@float}
 
@@ -1491,7 +1492,7 @@ scholarly research.}
 \def\table{\@float{table}}
 
 % Edited by Yucheng Liu on Dec. 21, 2024.
-% This is based on a "bad definition" document class warning.
+% The reason for that is to remove a "bad definition" document class warning.
 % \let\endtable\end@float
 \def\endtable{\end@float}
 
@@ -1901,6 +1902,181 @@ scholarly research.}
   \setcounter{footnote}{0} % Footnotes start at zero again.
   \let\maketitle\relax % only ONCE!?
 }
+
+% Edited by Yucheng Liu on Feb. 6, 2025.
+% The reason for that is to follow the Spring 2024-25 guideline.
+\def\MakeTitleVersionTwo#1{		% Define macro to print title page.
+% Chan:
+%	Check if all the definitions have been defined.
+  \CheckDefinitions
+  \titledefinedtrue
+  \typeout{Title page}
+  \begin{titlepage}
+    \textspace
+%    \let\footnotesize\small % Local definitions to make \thanks produce
+%    \let\footnoterule\relax % \normalsize footnotes with no separating rule.
+ %   \setcounter{page}{1}
+    \null
+    \parskip=0pt
+% Chan:
+%	Add certain vertical space before the title.
+    \TOffset
+    \begin{center}
+      {\Lbi \expandafter{\@title} \par}
+% Chan:
+%	Make changes according to the guidelines released on March 2001.
+%      \vglue 8ex
+%      {\lbi BY \par}
+%      \vglue 8ex
+      \vglue 10ex
+      {\lbi by \par}
+      \vglue 2ex
+      {\lbi \expandafter{\@author} \par\par}
+% Chan:
+%	Make changes according to the guidelines released on March 2001.
+%      \vglue 8ex
+%      {\normalsize A Thesis Presented to \par}
+      \vglue 10ex
+      {\normalsize A \@StageFName Submitted to \par}
+      {\normalsize The Hong Kong University of Science and Technology (Guangzhou)\par}
+% Chan:
+%	Make changes according to the guidelines released on March 2001.
+%      {\normalsize in Partial Fulfillment\par}
+%      {\normalsize of the Requirements for\par}
+%      {\normalsize the Degree of \@degree\par}
+      {\normalsize in Partial Fulfillment of the Requirements for\par}
+      {\normalsize the Degree of \@DegreeFName\par}
+%    \ifAM
+%      {\normalsize Master of Arts\par}
+%    \else
+%      \ifMS
+%        {\normalsize Master of Science\par}
+%      \else
+%        \ifPhD
+%          {\normalsize Doctor of Philosophy\par}
+%        \else
+%          {\normalsize Master of Philosophy\par}
+%        \fi 
+%      \fi
+%    \fi
+% Chan:
+%	The following should be \@subject instead.
+%     {\normalsize in \@department\par}
+%      \vglue 7em
+     {\normalsize in \@subject\par}
+     \vglue 6ex
+% Chan:
+%	Make changes according to the guidelines released on March 2001.
+%     {\normalsize Hong Kong, \space\DefenseMonthName\space\number\DefenseYear\par}
+      {\normalsize \space\DefenseMonthName\space\number\DefenseYear, Guangzhou\par}
+      \vglue 12ex plus 1fill
+      {\normalsize \Copyright}
+    \end{center}
+    \addcontentsline{toc}{chapter}{Title Page}
+    \newpage
+% End of Page 1
+\abstract
+\input{#1}
+\endabstract
+% End of Page 2
+\ifThesis
+    \authorise
+
+% End of Page 3
+
+%    \let\footnotesize\small % Local definitions to make \thanks produce
+%    \let\footnoterule\relax % \normalsize footnotes with no separating rule.
+    %    \setcounter{page}{0}
+    \typeout{Signature Page}
+    \textspace
+    \null
+    \parskip=0pt
+%    \ifPhD
+      \setcounter{@minmembers}{8} % PhD committees have at least 5 members
+%    \else
+%      \setcounter{@minmembers}{3} % Masters committees have at least 3 members
+%    \fi
+% Chan:
+%	Add certain vertical space before the title.
+      \TOffset
+    \begin{center}
+      {\Lbi \expandafter{\@title} \par}
+      
+% Chan:
+%	Make changes according to the guidelines released on March 2001.
+%      \vglue 8ex
+%      {\lbi BY \par}
+%      \vglue 8ex
+      \vglue 6ex
+      {\lbi by \par}
+      \vglue 2ex
+             {\lbi \expandafter{\@author} \par}
+% Chan:
+%	Extend the centering environment for the whole page.
+%    \end{center}
+        \vglue 6ex
+% Chan:
+%	Make changes according to the guidelines released on March 2001.
+    {\normalsize This is to certify that I have examined the above \@DegreeSName thesis\par}
+    {\normalsize and have found that it is complete and satisfactory in all respects,\par}
+    {\normalsize and that any and all revisions required by\par}
+    {\normalsize the thesis examination committee have been made.\par}
+%    \begin{flushleft}
+    \vglue 0ex plus 1fill
+%    \parbox{0.75\textwidth}{
+%    \parbox{5in}{
+      {	% @membersprinted counts the number of committee members printed so far
+ 	\newcounter{@membersprinted}\setcounter{@membersprinted}{0}
+ 	% Print the committee members defined by the user.
+ 	\loop
+ 	\ifnum \value{@membersprinted} < \value{@members} 
+ 	  \addtocounter{@membersprinted}{1}
+ 	  \ifcase\value{@membersprinted}
+ 	    \typeout{Thesis style--internal error printing members.} \or
+ 	    \@membera \or
+ 	    \@memberb \or
+ 	    \@memberc \or
+ 	    \@memberd \or
+ 	    \@membere \or
+ 	    \@memberf \or
+ 	    \@memberg \or
+ 	    \@memberh
+ 	  \else \typeout{Thesis style--internal error printing members.}
+ 	  \fi
+ 	\repeat
+	% If the minimum number of signature lines haven't been printed,
+	% print some more.
+%	\loop
+%	\ifnum \value{@membersprinted} < \value{@minmembers}
+%	  \addtocounter{@membersprinted}{1}
+%	  \@member{}
+        %	\repeat
+      }
+ %   }
+    \par
+    {\normalsize \@department\par}
+%    \vglue 3ex plus 1fill
+    {\normalsize\DefenseDateName\par}
+%   {\normalsize Date:\hfill\rule[-.4ex]{2.35in}{.5pt}}
+%    }\hfill\par
+%    \end{flushleft}
+% Chan:
+%	Move \end{center} from above position to here.
+    \end{center}
+    \addcontentsline{toc}{chapter}{Signature Page}
+    \textspaceundo
+    \newpage
+\fi
+  \end{titlepage}
+
+%
+% End of TitlePage
+%
+
+  \setcounter{footnote}{0} % Footnotes start at zero again.
+  \let\MakeTitleVersionTwo\relax % only ONCE!?
+}
+
 %% Makeabstract command
 \def\makeabstract{		% Define macro to print title page.
   \typeout{Abstract}
