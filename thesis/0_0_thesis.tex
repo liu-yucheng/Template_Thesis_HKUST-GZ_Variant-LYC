@@ -3,8 +3,9 @@
 
 % HKUST-GZ thesis template. Using ustthesis.cls.
 
-% Import package set 1.
 \documentclass[a4paper]{ustthesis}
+
+% Use packages.
 \usepackage[square,numbers]{natbib}
 \usepackage{xeCJK}
 % \usepackage[T1]{fontenc}
@@ -21,18 +22,23 @@
 \usepackage{xcolor}
 \usepackage{times}
 \usepackage{array}
-\usepackage{hyperref}
 
+% Use packages.
+% Configure packages.
+\usepackage{hyperref}
 \hypersetup{
-    colorlinks = false,
-    pdfborderstyle = {/S/U/W 1}
+  allbordercolors = gray,
+  colorlinks = false,
+  pdfborderstyle = {/S/U/W 1},
 }
 
+% Use packages.
+% Configure packages.
 \usepackage{pdflscape}
 \DeclareMathOperator*{\argmax}{argmax}
 \usepackage{fontspec}
 
-% Font settings preset 1.
+% Define font presets.
 \iffalse
 
 \setmainfont{times} [
@@ -60,11 +66,12 @@
 ]
 
 % \setCJKmainfont{AR PL UMing HK}
-\setCJKmainfont{../fonts/GoNotoCurrentSerif/GoNotoCurrentSerif.ttf}
+\setCJKmainfont{NSimSun}
+\setCJKsansfont{SimHei}
 
 \fi
 
-% Font settings preset 2.
+% Define font presets.
 \iftrue
 
 \setmainfont{cambria} [
@@ -91,11 +98,12 @@
     BoldItalicFont = *bi.ttf
 ]
 
-\setCJKmainfont{../fonts/GoNotoCurrentSerif/GoNotoCurrentSerif.ttf}
+\setCJKmainfont{NSimSun}
+\setCJKsansfont{SimHei}
 
 \fi
 
-% Font settings preset 3.
+% Define font presets.
 \iffalse
 
 \setmainfont{GoNotoCurrentSerif} [
@@ -114,45 +122,55 @@
     UprightFont = *.ttf
 ]
 
-\setCJKmainfont{../fonts/GoNotoCurrentSerif/GoNotoCurrentSerif.ttf}
+\setCJKmainfont{NSimSun}
+\setCJKsansfont{SimHei}
 
 \fi
 
-% Import package set 2.
+% Use packages.
 % \usepackage{setspace}
 % \usepackage{hyperref}
 \usepackage{diagbox}
-% \usepackage[T1]{fontenc}  % use 8-bit T1 fonts
-% \usepackage{hyperref}     % hyperlinks
-% \usepackage{url}          % simple URL typesetting
-\usepackage{booktabs}       % professional-quality tables
-\usepackage{amsfonts}       % blackboard math symbols
-\usepackage{nicefrac}       % compact symbols for 1/2, etc.
-\usepackage{microtype}      % microtypographyhttps://www.overleaf.com/project/62064cfa2a4921563b535a86
-\usepackage{xcolor}         % colors
+% \usepackage[T1]{fontenc} % use 8-bit T1 fonts
+% \usepackage{hyperref} % hyperlinks
+% \usepackage{url} % simple URL typesetting
+\usepackage{booktabs} % professional-quality tables
+\usepackage{amsfonts} % blackboard math symbols
+\usepackage{nicefrac} % compact symbols for 1/2, etc.
+\usepackage{microtype} % microtypographyhttps://www.overleaf.com/project/62064cfa2a4921563b535a86
+\usepackage{xcolor} % colors
 \usepackage{times}
 \usepackage{epsfig}
 \usepackage{graphicx}
 \usepackage{amsmath}
 \usepackage{amssymb}
 
-% Import package set 3.
+% Use packages.
 \usepackage{amsmath}
 \usepackage{amsfonts}
 \usepackage{dsfont}
 \usepackage{multirow}
 \usepackage{adjustbox}
 \usepackage{wrapfig}
-\usepackage{threeparttable}     % Package importation needed.
+\usepackage{threeparttable} % Package importation needed.
 % \usepackage{appendix}
 \usepackage[utf8x]{inputenc}
 
-% Define commands set 1.
-% Import package set 4.
+% Use packages.
+% Configure packages.
+\usepackage{listings}
+\lstset{
+  % basicstyle=\small\ttfamily,
+  columns=flexible,
+  breaklines=true
+}
+
+% Use packages.
+% Configure packages.
+% Define commands.
 \newcommand{\sign}{\text{sign}}
 \newtheorem{myDef}{Definition} 
-\newtheorem{myAss}{Assumption} 
-% Assumption
+\newtheorem{myAss}{Assumption} % Assumption
 \newtheorem{myTheo}{Theorem}
 \newtheorem{myexam}{Example}
 \newtheorem{proposition}{Proposition}
@@ -163,7 +181,7 @@
 \newcommand{\rmnum}[1]{\romannumeral #1}
 \newcommand{\Rmnum}[1]{\expandafter\@slowromancap\romannumeral #1@}
 
-% Define commands set 2.
+% Define commands.
 \newcommand{\etal}{\emph{et~al.}\xspace}
 \newcommand{\eg}{\emph{e.g.},\xspace}
 \newcommand{\ie}{\emph{i.e.},\xspace}
@@ -178,11 +196,11 @@
 \newcommand\equref[1]{Eq.~(\ref{#1})}
 \DeclareMathAlphabet\mathbfcal{OMS}{cmsy}{b}{n}
 
-% Define commands set 3.
+% Define commands.
 \newtheorem{pro}{Problem}
 \newcommand{\eat}[1]{}
 \ifodd 1
-\newcommand{\rev}[1]{{\color{purple}{#1}}}                      % Revision of the text.
+\newcommand{\rev}[1]{{\color{purple}{#1}}} % Revision of the text.
 \newcommand{\response}[1]{{\color{black}{#1}}}
 \newcommand{\TODO}[1]{{\color{red}TODO:{#1}}}
 \newcommand\beftext[1]{{\color[rgb]{0.5,0.5,0.5}{BEFORE:#1}}}
@@ -193,32 +211,32 @@
 \newcommand{\beftext}[1]{#1}
 \fi
 
-% Import package set 5.
+% Use packages.
 % Use the "latexsym" package when encountering the following error:
 %   ! LaTeX Error: Command \??? not provided in base LaTeX2e.
 % \usepackage{latexsym}
 % Use the "epsf" package for including EPS files.
 % \usepackage{epsf}
 
-% Import package set 6.
+% Use packages.
 % Create glossaries.
 % \usepackage{glossaries}
 \usepackage[style=indexgroup]{glossaries-extra}
 \input{2_4_1_glossaries_definitions}
 
 % Preambles. DO NOT ERASE THEM.
-\title{Title}                           % Title of the thesis.
-\author{Your Name}                      % Author of the thesis.
-\degree{\MPhil}                         % Degree for which the thesis is. Options: \AM \MSc \MPhil \PhD .
-\stage{\Thesis}                         % Stage of PhD document. Options: \PQE \Proposal \Thesis .
-\subject{Your Thrust}                   % Subject of the Degree.
-\department{Your Thrust}                % Department to which the thesis is submitted.
-\advisor{Prof. A}                       % Supervisor.
+\title{Title} % Title of the thesis.
+\author{Your Name} % Author of the thesis.
+\degree{\MPhil} % Degree for which the thesis is. Options: \AM \MSc \MPhil \PhD .
+\stage{\Thesis} % Stage of PhD document. Options: \PQE \Proposal \Thesis .
+\subject{Your Thrust} % Subject of the Degree.
+\department{Your Thrust} % Department to which the thesis is submitted.
+\advisor{Prof. A} % Supervisor.
 % co-supervisor can be added using \member .
 \member{Prof. B}
-%\acting                                % Uncomment for Accting department head.
-\depthead{Prof. C}                      % Department head.
-\defencedate{2023}{12}{18}              % \defencedate{year}{month}{day}.
+%\acting % Uncomment for Accting department head.
+\depthead{Prof. C} % Department head.
+\defencedate{2023}{12}{18} % \defencedate{year}{month}{day}.
 
 % According to the sample shown in the guidelines, page number is placed below the bottom margin.
 % However, if the author prefers the page number to be printed above the bottom margin,
@@ -226,8 +244,8 @@
 %\PNumberAboveBottomMargin
 
 \begin{document}
-%\begin{CJK}{UTF8}{song}    % Bitstream Cyber Bit song ti
-%\begin{CJK*}{UTF8}{gbsn}   % Arphic song ti
+%\begin{CJK}{UTF8}{song} % Bitstream Cyber Bit song ti
+%\begin{CJK*}{UTF8}{gbsn} % Arphic song ti
 
 % Edited by Yucheng Liu on Feb. 6, 2025.
 % The reason for that is to follow the Spring 2024-25 guideline.
