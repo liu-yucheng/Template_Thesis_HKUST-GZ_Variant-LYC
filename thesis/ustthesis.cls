@@ -1905,6 +1905,7 @@ scholarly research.}
 
 % Edited by Yucheng Liu on Feb. 6, 2025.
 % The reason for that is to follow the Spring 2024-25 guideline.
+% "The Abstract should be positioned immediately after the Title page of the thesis."
 \def\MakeTitleVersionTwo#1{		% Define macro to print title page.
 % Chan:
 %	Check if all the definitions have been defined.
