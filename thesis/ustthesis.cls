@@ -1597,12 +1597,21 @@ scholarly research.}
   %   same page.
   \filbreak
   \textspace
+
+  % Edited by Yucheng Liu on Jun. 16, 2025.
+  % The reason for this edit is to add more space above the first \member invocation.
+  \vglue 2ex
+
   % \raisebox{-8pt}[0pt][17pt]{\rule{\maxmem}{.5pt}}\par	% Print line.
   % \raisebox{-8pt}[0pt][17pt]{\rule{5in}{.5pt}}\par	% Print line.
   \raisebox{-8pt}[0pt][17pt]{\rule{5in}{.5pt}}\par	% Print line.
   \raisebox{0pt}[0pt][0pt]{\expandafter{#1}}\par	% Print member name below.
   \textspaceundo
-  \vglue 6ex
+  
+  % Edited by Yucheng Liu on Jun. 16, 2025.
+  % The reason for this edit is to add more space above the first \member invocation.
+  \vglue 4ex
+
   \filbreak
 }
 
