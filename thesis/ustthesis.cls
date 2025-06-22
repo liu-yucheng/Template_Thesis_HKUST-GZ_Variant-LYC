@@ -253,8 +253,13 @@
 %\evensidemargin 1.45cm  %  Note that \oddsidemargin = \evensidemargin
 %\oddsidemargin 15mm   %  25mm + 15mm = 40mm
 %\evensidemargin 15mm  %  25mm + 15mm = 40mm
-\oddsidemargin 0mm   %  25mm + 15mm = 40mm
-\evensidemargin 7mm  %  25mm + 15mm = 40mm
+%\oddsidemargin 0mm   %  25mm + 15mm = 40mm
+%\evensidemargin 7mm  %  25mm + 15mm = 40mm
+
+% Edited by Yucheng Liu on Jun. 22, 2025.
+\oddsidemargin 0mm
+\evensidemargin 0mm
+
 \marginparwidth 0pt   %  Width of marginal notes.
 \marginparsep 0pt     % Horizontal space between outer margin and marginal note
 
